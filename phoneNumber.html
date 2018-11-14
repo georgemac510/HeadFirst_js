@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Phone Number</title>
+  </head>
+  <body>
+    <script>
+    function validate(phoneNumber) {
+      if (phoneNumber.length !== 8) {
+        return false;
+      }
+      for (var i =0; i < phoneNumber.length; i++) {
+        if (i === 3) {
+          if (phoneNumber.charAt(i) !== '-') {
+            return false;
+          }
+        } else if (isNaN(phoneNumber.charAt(i))) {
+          return false;
+        }
+      }
+      return true;
+    }
+    console.log(true, false);
+      </script>
+    </body>
+  </html>
