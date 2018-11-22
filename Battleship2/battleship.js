@@ -89,16 +89,24 @@ function parseGuess(guess) {
   return null;
 }
 
-controller.processGuess("A0"); // miss
+function init() {
+  var fireButton = document.getElementById("fireButton");
+  fireButton.onclick = handleFireButton;
+  var guessInput = document.getElementById("guessInput");
+  guessInput.onkeypress = handleKeyPress;
+}
+function handleFireButton() {
+  var guessInput = document. getElementById("guessInput");
+  var guess = guessInput.value;
+  controller.processGuess(guess);
+  guessInput.value = "";
+}
+function handleKeyPress(e) {
+  var fireButton = document. getElementById("fireButton");
+  if (e.keyCode === 13) {
+    fireButton.click();
+    return false;
+  }
+}
 
-controller.processGuess("A6"); // hit
-controller.processGuess("B6"); // hit
-controller.processGuess("C6"); // hit
-
-controller.processGuess("C4"); // hit
-controller.processGuess("D4"); // hit
-controller.processGuess("E4"); // hit
-
-controller.processGuess("B0"); // hit
-controller.processGuess("B1"); // hit
-controller.processGuess("B2"); // hit
+window.onload = init;
