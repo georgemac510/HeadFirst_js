@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Up, up and away!</title>
+  </head>
+  <body>
+    <script>
+      var passengers = [  { name: "Jane Doloop", paid: true, ticket: "coach"},
+                          {name: "Dr. Evel", paid: true, ticket: "firstclass"},
+                          { name: "Sue Property", paid: false, ticket: "firstclass" },
+                          { name: "John Funcal", paid: true, ticket: "coach"} ];
+
+      function processPassengers(passengers, testFunction) {
+        for (var i = 0; i < passengers.length; i++) {
+          if (testFunction(passengers[i])) {
+            return false;
+          }
+        }
+        return true;
+      }
+
+      function checkNoFlyList(passenger) {
+        return (passenger.name === "Dr. Evel");
+      }
+
+      function checkNotPaid(passenger) {
+        return (!passenger.paid);
+      }
+
+      function printPassenger(passenger) {
+        var message = passenger.name;
+        if (passenger.paid) {
+          message = message + " has paid";
+        } else {
+          message = message + " has not paid";
+        }
+        console.log(message);
+        return false;
+      }
+
+
+      var allCanFly = processPassengers(passengers, checkNoFlyList);
+      if (!allCanFly) {
+        console.log("The plane can't take off: we have a passenger on the no-fly list");
+      }
+
+      var allPaid = processPassengers(passengers, checkNotPaid);
+      if (!allPaid) {
+        console.log("The plane can't take off: not everyone has paid.");
+      }
+
+        processPassengers(passengers, printPassenger);
+
+
+
+        function serveCustomer(passenger) {
+          if (passenger.ticket === "firstclass") {
+            alert("Would you like a cocktail or wine?");
+          } else {
+              alert("Your choice is cola or water.");
+          }
+        }
+
+      </script>
+    </body>
+  </html>
