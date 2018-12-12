@@ -4,6 +4,31 @@
     <meta charset="utf-8">
     <title>Crazy kittens screaming for food</title>
   </head>
+  <script>
+    var meowing = true;
+    var mew = function(num) {
+      var sound = "Mew!!!";
+      function mewCat() {
+        console.log(sound);
+      }
+      for (var i = 0; i < num; i++) {
+        mewCat();
+      }
+    };
+    function meep(num) {
+      var sound = "Meep!!";
+      var meepKitten = function() {
+        console.log(sound);
+      };
+      for (var i = 0; i < num; i++) {
+        meepKitten();
+      }
+    }
+    if (meowing) {
+      mew(5);
+      meep(4);
+    }
+    </script>
   <body>
     <h1> Loud cats screaming for food!</h1>
 
@@ -13,6 +38,6 @@
       When was the last time that they ate?</h2>
       <h2>Compared to these chill kittens</h2>
       <img src="images/cats.jpg" alt="Cool Cats" width="600" height="450"/>
-      
+
     </body>
   </html>
