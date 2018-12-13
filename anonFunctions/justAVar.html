@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Lexical Scope</title>
+    <script>
+      var justAVar = "Oh, don't you worry about it, I'm GLOBAL";
+
+      function whereAreYou() {
+          var justAVar = "Just an everyday LOCAL";
+
+          function inner() {
+              return justAVar;
+          }
+
+          return inner;
+        }
+
+        var innerFunction = whereAreYou();
+        var result = innerFunction();
+        console.log(result);
+
+      </script>
+    </head>
+    <body></body>
+  </html>
